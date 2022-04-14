@@ -87,6 +87,10 @@ public class BoardExe {
 				
 			} else if(menu == 6) {
 				//동일한 작성자있으면 작성한 게시물 모두 가져오기
+				System.out.println("작성자 입력> ");
+				String sameName = sc.nextLine();
+				
+				boardList.getWriterList(sameName);
 				
 			} else if(menu == 9) {
 				System.out.println("프로그램을 종료합니다.");

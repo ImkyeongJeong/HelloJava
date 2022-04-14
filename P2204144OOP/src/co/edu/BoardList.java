@@ -4,7 +4,8 @@ import java.util.Iterator;
 
 public class BoardList {
 	
-	private Board[] boards; //board를 담을 수 있는 필드
+	// Board클래스 접근위한 변수
+	private Board[] boards; 
 	
 	// 배열크기 초기화
 	public void init(int size) {
@@ -73,6 +74,11 @@ public class BoardList {
 	
 	// 작성자 조회
 	public Board[] getWriterList(String writer) {
+		for (int i = 0; i < boards.length; i++) {
+			if(boards[i].getWriter().equals(writer)) {
+				boards[i].getInfo();
+			}
+		}
 		return null;
 	}
 	
