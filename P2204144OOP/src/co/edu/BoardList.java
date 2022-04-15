@@ -74,14 +74,23 @@ public class BoardList {
 	
 	// 작성자 조회
 	public Board[] getWriterList(String writer) {
+		//값을 담아서 보낼 배열
+		Board[] sBoards = new Board[5];
+
+		//배열일 경우 항상 null값 확인 해줘야 함
+		//밖 배열은 원본 배열에서 찾는 것, 안for sBoards에 비워진 공간을 채워서 반환
 		for (int i = 0; i < boards.length; i++) {
-			if(boards[i].getWriter().equals(writer)) {
-				boards[i].getInfo();
+			if(boards[i] != null && boards[i].getWriter().equals(writer)) {
+				for (int j = 0; j < sBoards.length; j++) {
+					if(sBoards[j] == null) {
+						sBoards[j] = boards[i];
+						break;
+					}
+				}
 			}
 		}
-		return null;
+		return sBoards;
 	}
-	
 	
 	// 게시글목록
 	public Board[] boardList() {

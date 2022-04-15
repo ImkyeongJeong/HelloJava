@@ -1,5 +1,6 @@
 package co.edu;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class BoardExe {
@@ -14,7 +15,14 @@ public class BoardExe {
 		while(true) {
 			System.out.println("1.추가 2.수정 3.목록 4.삭제 5.한건조회 6.작성자조회 9.종료");
 			System.out.print("선택> ");
-			int menu = sc.nextInt();
+			
+			int menu = -1;
+			//예외처리 try: 잘못된 처리라면, catch: 대신할 코드
+			try {
+				menu = sc.nextInt(); 
+			} catch(InputMismatchException e) { 
+				System.out.println("잘못된 처리를 시도했습니다.");
+			}
 			sc.nextLine();
 			
 			if(menu == 1) { // 추가
@@ -30,6 +38,7 @@ public class BoardExe {
 		
 				// 생성자 호출
 				Board newBod = new Board(bNo, bTitle, bContent, bWriter);
+				
 				int chk = boardList.addBoard(newBod);
 				if(chk == 0) {
 					System.out.println("입력 성공");
@@ -58,8 +67,10 @@ public class BoardExe {
 				Board[] boards = boardList.boardList();
 				System.out.println("게시글번호    제목                내용                작성자  조회수");
 				System.out.println("===========================================================");
+				//참조형 변수 참조배열
 				for(Board board : boards) {
-					if(board != null) {
+					//객체의 주소가 있다면
+					if(board != null) { 
 						board.getInfo();
 					}
 				}
@@ -88,9 +99,20 @@ public class BoardExe {
 			} else if(menu == 6) {
 				//동일한 작성자있으면 작성한 게시물 모두 가져오기
 				System.out.println("작성자 입력> ");
-				String sameName = sc.nextLine();
+				String sWriter = sc.nextLine();
+
+				//sWriter랑 같은 값 return받은 sBoards의 내용이 writerList에 담겨있음
+				Board[] writerList = boardList.getWriterList(sWriter);
 				
-				boardList.getWriterList(sameName);
+				//writerList 배열 내용을 출력 (어떻게 갖고 오는지 getWriterList에 구현)
+				System.out.println("게시글번호    제목                내용                작성자  조회수");
+				System.out.println("===========================================================");
+				//for(변수 : 배열변수) 향상된 변수
+				for(Board board : writerList) { 
+					if(board != null) {
+						board.getInfo();
+					}
+				}
 				
 			} else if(menu == 9) {
 				System.out.println("프로그램을 종료합니다.");

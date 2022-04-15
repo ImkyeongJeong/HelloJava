@@ -78,5 +78,16 @@ public class Board {
 		System.out.printf(info, 
 				this.boardNo, this.writer, this.title, this.searchCnt, this.content);
 	}
+
+
+	
+	//어노테이션: 규칙을 위반하면 알려준다.  / 오버라이딩: 부모클래스 상속받아 재정의하는 것
+	@Override
+	public String toString() {
+		return "Board [boardNo=" + boardNo + ", title=" + title + ", content=" + content + ", writer=" + writer
+				+ ", searchCnt=" + searchCnt + "]";
+	}
+	
+	
 	
 }
