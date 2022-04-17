@@ -46,5 +46,14 @@ public class Exam4 {
 		this.phon = phon;
 	}
 	
+	public void getInfo() {
+		System.out.println("-----------------------------------");
+		System.out.println("이름     생일      연락처");
+		System.out.printf("%-7s %-1s %-15s \n", this.name, this.birthD, this.phon);
+	}
+	
+	public void delName(String name) {
+		this.name = name;
+	}
 	
 }

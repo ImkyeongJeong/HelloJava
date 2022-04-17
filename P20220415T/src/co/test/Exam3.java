@@ -9,7 +9,7 @@ public class Exam3 {
 		int[] maxAry = new int[10];
 		
 		int sum = 0;
-		int avg = 0;
+		double avg = 0;
 
 		for (int i = 0; i < 10; i++) {
 			int randomVal = (int)(Math.random()*10) +1;
@@ -19,15 +19,13 @@ public class Exam3 {
 			System.out.print(intAry[i] + " ");
 		}			
 
-		avg = sum/10;
+		avg = sum/10.0;
 		System.out.println();
 		System.out.println("배열의 합 : " + sum + "  / 배열의 평균 : " + avg);
 		
-		for (int i = 0; i < maxAry.length; i++) {
-			int randomVal = (int)(Math.random()*10) +1;
-
-			if(randomVal > avg) {
-				maxAry[i] = randomVal;
+		for (int i = 0; i < intAry.length; i++) {
+			if(intAry[i] > avg) {
+				maxAry[i] = intAry[i];
 				System.out.print(maxAry[i] + " ");
 			}
 
