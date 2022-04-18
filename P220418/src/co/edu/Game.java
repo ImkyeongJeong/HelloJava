@@ -18,25 +18,22 @@ public class Game {
 		
 		//생성
 		for (int i = 0; i < 5; i++) {
-			int randomVal = (int)(Math.random()*5) +1;
+			intAry[i] = (int)(Math.random()*5) +1;
 			
-			//비교
+			//비교(i인덱스에 들어갈 숫자를 반복문을 통해 같은 숫자가 있는지 확인)
 			for (int j = 0; j < i ; j++) {
-				if(intAry[i] != randomVal) {
-					intAry[i] = randomVal;
-					break;
-				} else {
+				
+				//중복이 있으면 반복문을 빠져나가고 전 단계로 이동
+				if(intAry[i] == intAry[j]) {
 					i--;
+					break;
 				}
 			}
-
-			System.out.print(randomVal);
-			}
 		}
-//		System.out.println("입력> ");
-//		int num = sc.nextInt();
-		
-		
-		
+		//랜덤 숫자 확인
+		for(int num : intAry) {
+		System.out.print(num);
+		}
 	}
+}
 
