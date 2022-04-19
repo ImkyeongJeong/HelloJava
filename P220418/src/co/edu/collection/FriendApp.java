@@ -34,9 +34,8 @@ public class FriendApp {
 			} else if(menu == 2) {
 				System.out.println("이름을 입력하세요.");
 				String name = sc.nextLine();
-				System.out.println("변경할 연락처 입력");
-				String chanPhon = sc.nextLine();
-				Friend friend = new Friend(name, chanPhon); 
+
+				Friend friend = new Friend(name,null); 
 				
 				service.modFriend(friend);
 				
@@ -50,12 +49,7 @@ public class FriendApp {
 				System.out.println("조회할 이름을 입력하세요.");
 				String searchName = sc.nextLine();
 				
-				Friend friend = service.findFriend(searchName);
-				if(friend == null) {
-					System.out.println("조회결과 없음");
-				} else {
-					System.out.println(friend);
-				}
+				service.findFriend(searchName);
 				
 			} else {
 				break;
