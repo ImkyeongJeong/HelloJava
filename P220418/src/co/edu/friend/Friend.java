@@ -21,7 +21,7 @@ public class Friend {
 	}
 
 	
-	protected String getName() {
+	public String getName() {
 		return name;
 	}
 
