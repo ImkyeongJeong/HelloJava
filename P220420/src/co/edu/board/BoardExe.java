@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class BoardExe {
 
 	public static void main(String[] args) {
-		
-		//BoardService인터페이스 BoardApp인스턴스 생성?
+		//다형성 때문에 이렇게 선언한 것
+		//BoardApp boards = new BoardApp(); 해도 상관은 없어요
 		BoardService boards = new BoardApp();
 		
 		Scanner sc = new Scanner(System.in);
